@@ -6,15 +6,21 @@ import EventList from '../views/EventList.vue'
 
 Vue.use(VueRouter)
 
-// instead of the hash mode of router, for dev env:
-// for prod - see docs and set up the server
+// instead of the hash mode of router when # is used in URL to avoid page refresh
+// for dev env: mode = 'history' (supports IE 10+, not IE 9)
+// for prod - see Vue Router docs and set up the server to always serve index.thml
+// This will remove 404 as index.html will always be present
+// So at the end of "routes" create a catch-all * notFound component for 404
 const mode = 'history'
 
 const routes = [
   {
     path: '/',
     name: 'event-list',
-    component: EventList
+    component: EventList,
+    meta: {
+      title: 'Event List - Date Jar'
+    }
   },
   {
     // path: '/event',
@@ -29,16 +35,27 @@ const routes = [
         /* webpackChunkName: "EventShow" */
         '../views/EventShow.vue'
       ),
-    props: true
+    // props needed to pass dynamic params
+    props: true,
+    meta: {
+      // TODO: needs a dynamic update of Event Name:
+      title: 'Event - Date Jar'
+    }
   },
   {
     path: '/event/create',
     name: 'event-create',
-    component: () => import('../views/EventCreate.vue')
+    component: () => import('../views/EventCreate.vue'),
+    meta: {
+      title: 'Create Event - Date Jar'
+    }
   },
   {
     path: '*',
-    component: () => import('../views/NotFoundComponent.vue')
+    component: () => import('../views/NotFoundComponent.vue'),
+    meta: {
+      title: 'Page is not found - Date Jar'
+    }
   }
   // {
   //   path: '/EventShow',
@@ -49,6 +66,12 @@ const routes = [
 const router = new VueRouter({
   routes,
   mode
+})
+
+// Navigation guard to access and update meta tags:
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
 })
 
 export default router
