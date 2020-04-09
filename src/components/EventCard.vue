@@ -4,9 +4,10 @@
     :to="{ name: 'event-show', params: { id: '1' } }"
   >
     <div class="event-card -shadow">
-      <div class="eyebrow">@{{ event.time }} on {{ event.date }}</div>
-      <h3 class="styles">{{ event.title }}</h3>
-      <div>{{ event.attendees.length }} attendees</div>
+      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
+      <h3 class="title">{{ event.title }}</h3>
+      <BaseIcon name="users" />
+      <span>{{ event.attendees.length }} attendees</span>
     </div>
   </router-link>
 </template>
@@ -32,8 +33,8 @@ export default {
 
 <style scoped>
 .event-card {
-  padding: 20px;
-  margin-bottom: 24px;
+  padding: 1.3em;
+  margin-bottom: 1.5em;
   transition: all 0.2s linear;
   cursor: pointer;
 }
@@ -41,28 +42,21 @@ export default {
 .event-card:active,
 .event-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(255, 255, 255, 0.2),
-    0 1px 15px 0 rgba(255, 255, 255, 0.19);
+  box-shadow: 0 0.1em 0.75em 0 rgba(255, 255, 255, 0.2),
+    0 1px 0.95em 0 rgba(255, 255, 255, 0.19);
 }
 .event-card > .title {
   margin: 0;
+  color: var(--color-main);
 }
-
 .event-link {
   color: var(--color-tertiary);
   text-decoration: none;
   font-weight: 400;
 }
-
-.event-link > h3 {
-  color: var(--color-main);
-}
-
 .event-link:focus,
 .event-link:active,
 .event-link:hover {
-  text-decoration: underline;
-  /* background-color: var(--color-secondary);
-  color: var(--color-bg); */
+  color: var(--color-secondary);
 }
 </style>

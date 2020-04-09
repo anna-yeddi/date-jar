@@ -1,25 +1,18 @@
 <template>
   <div id="app">
-    <nav aria-label="Main navigation">
-      <ul id="nav">
-        <router-link :to="{ name: 'event-list' }" aria-current-value
-          >List of Events</router-link
-        >&nbsp;|&nbsp;
-        <router-link :to="{ name: 'event-create' }" aria-current-value
-          >Create an Event</router-link
-        >
-      </ul>
-    </nav>
+    <NavBar />
     <router-view />
   </div>
 </template>
 
 // TODO: Fix isActive or aria-current
 <script>
+import NavBar from '@/components/NavBar.vue'
+
 export default {
-  data: () => ({
-    isActive: false
-  })
+  components: {
+    NavBar
+  }
 }
 </script>
 
@@ -46,7 +39,6 @@ body {
 }
 
 a {
-  padding: 0.2em 0.3em;
   background: transparent;
   color: var(--color-secondary);
   font-weight: bold;
@@ -55,7 +47,7 @@ a {
 a:focus,
 a:hover,
 a:active {
-  background-color: var(--color-main);
+  background-color: var(--color-secondary);
   color: var(--color-bg);
 }
 hr {
@@ -65,8 +57,8 @@ hr {
 }
 #app {
   box-sizing: border-box;
-  width: 500px;
-  padding: 0 20px 20px;
+  width: 35em;
+  padding: 0 1.3em 1.3em;
   margin: 0 auto;
 }
 img {
@@ -84,27 +76,27 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
-  font-size: 50px;
+  font-size: 3.25em;
   font-weight: 700;
 }
 h2 {
-  font-size: 38px;
+  font-size: 2.3em;
   font-weight: 700;
 }
 h3 {
-  font-size: 28px;
+  font-size: 1.6em;
   font-weight: 700;
 }
 h4 {
-  font-size: 21px;
+  font-size: 1.3em;
   font-weight: 700;
 }
 h5 {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
 }
 h6 {
-  font-size: 15px;
+  font-size: 0.9em;
   font-weight: 700;
 }
 b,
@@ -115,7 +107,7 @@ small {
   font-size: 80%;
 }
 .eyebrow {
-  font-size: 20px;
+  font-size: 1.3em;
 }
 .-text-primary {
   color: var(--color-tertiary);
@@ -130,20 +122,20 @@ small {
   color: rgba(255, 255, 255, 0.5);
 }
 .-shadow {
-  box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.2),
-    0 1px 5px 0 rgba(255, 255, 255, 0.13);
+  box-shadow: 0 1px 0.2em 0 rgba(255, 255, 255, 0.2),
+    0 1px 0.3em 0 rgba(255, 255, 255, 0.13);
 }
 .badge {
   display: inline-flex;
-  height: 26px;
+  height: 1.55em;
   width: auto;
-  padding: 0 7px;
-  margin: 0 5px;
+  padding: 0 0.5em;
+  margin: 0 0.3em;
   background: transparent;
-  border-radius: 13px;
-  font-size: 13px;
+  border-radius: 0.8em;
+  font-size: 0.8em;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 1.55em;
 }
 .badge.-fill-gradient {
   background: linear-gradient(
@@ -204,7 +196,7 @@ textarea {
 textarea {
   width: 100%;
   overflow: auto;
-  font-size: 20px;
+  font-size: 1.3em;
 }
 [type='checkbox'],
 [type='radio'] {
@@ -226,10 +218,10 @@ textarea {
 [type='number'],
 [type='search'],
 [type='password'] {
-  height: 52px;
+  height: 3.25em;
   width: 100%;
-  padding: 0 10px;
-  font-size: 20px;
+  padding: 0 0.65em;
+  font-size: 1.3em;
 }
 [type='text']:focus,
 [type='number']:focus,
@@ -246,13 +238,13 @@ textarea {
 }
 select {
   width: 100%;
-  height: 52px;
-  padding: 0 24px 0 10px;
+  height: 3.25em;
+  padding: 0 1.5em 0 0.65em;
   vertical-align: middle;
   background: var(--color-bg)
     url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
-    no-repeat right 12px center;
-  background-size: 8px 10px;
+    no-repeat right 0.75em center;
+  background-size: 8px 0.65em;
   border: solid 1px rgba(255, 255, 255, 0.4);
   border-radius: 0;
   -webkit-appearance: none;
