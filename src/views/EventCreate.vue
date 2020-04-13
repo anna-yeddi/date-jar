@@ -9,7 +9,7 @@
       labore exercitationem, obcaecati totam quaerat, suscipit rem asperiores
       tempore, adipisci maiores tempora?
     </p>
-    <p class="width-80 color-tertiary">
+    <p class="width-80 -text-primary">
       Saepe eius labore voluptas perspiciatis magni esse explicabo aliquam,
       ipsam cupiditate. Totam cumque facere optio magni facilis, dignissimos
       repudiandae iure similique inventore corrupti voluptates tenetur
@@ -32,8 +32,5 @@ export default {}
   margin: 1em auto;
   width: 80%;
   text-align: left;
-}
-.color-tertiary {
-  color: var(--color-tertiary);
 }
 </style>

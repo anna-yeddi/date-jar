@@ -39,7 +39,7 @@ export default {
   color: var(--color-main);
 }
 .event-link {
-  color: var(--color-tertiary);
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 400;
 }

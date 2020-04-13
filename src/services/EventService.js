@@ -6,6 +6,7 @@ import axios from 'axios'
 const apiClient = axios.create({
   // Base URL for all calls to use:
   baseURL: 'http://localhost:3000/',
+  // This is the default:
   withCredentials: false,
   // Authentication & configuration for app to communicate with a server:
   headers: {

@@ -23,9 +23,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   --color-bg: #101f30;
   --color-main: #ffffff;
-  --color-primary: #72c89e;
+  --color-primary: #b9bbc5;
   --color-secondary: #d3969f;
-  --color-tertiary: #b9bbc5;
+  --color-tertiary: #a2cde2;
+  --color-success: #72c89e;
+  --color-error: tomato;
 }
 
 body {
@@ -35,7 +37,7 @@ body {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.03rem;
 }
 
 a {
@@ -57,8 +59,8 @@ hr {
 }
 #app {
   box-sizing: border-box;
-  width: 35em;
-  padding: 0 1.3em 1.3em;
+  width: 40rem;
+  padding: 0 1.3rem 1.3rem;
   margin: 0 auto;
 }
 img {
@@ -76,27 +78,27 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
-  font-size: 3.25em;
+  font-size: 3.25rem;
   font-weight: 700;
 }
 h2 {
-  font-size: 2.3em;
+  font-size: 2.3rem;
   font-weight: 700;
 }
 h3 {
-  font-size: 1.6em;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 h4 {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 h5 {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 700;
 }
 h6 {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 b,
@@ -104,44 +106,62 @@ strong {
   font-weight: bolder;
 }
 small {
-  font-size: 80%;
+  font-size: 0.8rem;
 }
 .eyebrow {
-  font-size: 1.3em;
+  font-size: 1.3rem;
+}
+.flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: center;
+}
+.flex-item {
+  flex-basis: 1 0 auto;
+}
+.inline {
+  display: inline;
+}
+.value {
+  margin-inline-start: 0.4rem;
 }
 .-text-primary {
-  color: var(--color-tertiary);
+  color: var(--color-primary);
+}
+.-text-secondary {
+  color: var(--color-secondary);
 }
 .-text-base {
   color: var(--color-main);
 }
 .-text-error {
-  color: tomato;
+  color: var(--color-error);
 }
 .-text-gray {
   color: rgba(255, 255, 255, 0.5);
 }
 .-shadow {
-  box-shadow: 0 1px 0.2em 0 rgba(255, 255, 255, 0.2),
-    0 1px 0.3em 0 rgba(255, 255, 255, 0.13);
+  box-shadow: 0 1px 0.2rem 0 rgba(255, 255, 255, 0.2),
+    0 1px 0.3rem 0 rgba(255, 255, 255, 0.13);
 }
 .badge {
   display: inline-flex;
-  height: 1.55em;
+  height: 1.625rem;
   width: auto;
-  padding: 0 0.5em;
-  margin: 0 0.3em;
+  padding: 0 0.437rem;
+  margin: 0 0.313rem;
   background: transparent;
-  border-radius: 0.8em;
-  font-size: 0.8em;
-  font-weight: 400;
-  line-height: 1.55em;
+  border-radius: 0.813rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.625rem;
 }
 .badge.-fill-gradient {
   background: linear-gradient(
     to right,
-    var(--color-primary),
-    var(--color-tertiary)
+    var(--color-tertiary),
+    var(--color-main)
   );
   color: var(--color-bg);
 }
@@ -182,7 +202,7 @@ button:-moz-focusring,
 [type='button']:-moz-focusring,
 [type='reset']:-moz-focusring,
 [type='submit']:-moz-focusring {
-  outline: 2px solid var(--color-tertiary);
+  outline: 0.125rem solid var(--color-primary);
 }
 label {
   color: rgba(255, 255, 255, 0.5);
@@ -196,7 +216,7 @@ textarea {
 textarea {
   width: 100%;
   overflow: auto;
-  font-size: 1.3em;
+  font-size: 1.3rem;
 }
 [type='checkbox'],
 [type='radio'] {
@@ -209,7 +229,7 @@ textarea {
 }
 [type='search'] {
   -webkit-appearance: textfield;
-  outline-offset: -2px;
+  outline-offset: -0.125rem;
 }
 [type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -218,16 +238,16 @@ textarea {
 [type='number'],
 [type='search'],
 [type='password'] {
-  height: 3.25em;
+  height: 3.25rem;
   width: 100%;
-  padding: 0 0.65em;
-  font-size: 1.3em;
+  padding: 0 0.65rem;
+  font-size: 1.3rem;
 }
 [type='text']:focus,
 [type='number']:focus,
 [type='search']:focus,
 [type='password']:focus {
-  border-color: var(--color-tertiary);
+  border-color: var(--color-primary);
 }
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
@@ -238,13 +258,13 @@ textarea {
 }
 select {
   width: 100%;
-  height: 3.25em;
-  padding: 0 1.5em 0 0.65em;
+  height: 3.25rem;
+  padding: 0 1.5rem 0 0.65rem;
   vertical-align: middle;
   background: var(--color-bg)
     url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
-    no-repeat right 0.75em center;
-  background-size: 8px 0.65em;
+    no-repeat right 0.75rem center;
+  background-size: 0.5rem 0.65rem;
   border: solid 1px rgba(255, 255, 255, 0.4);
   border-radius: 0;
   -webkit-appearance: none;
@@ -252,7 +272,7 @@ select {
   appearance: none;
 }
 select:focus {
-  border-color: var(--color-tertiary);
+  border-color: var(--color-primary);
   outline: 0;
 }
 select:focus::ms-value {
